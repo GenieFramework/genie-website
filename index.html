@@ -138,6 +138,8 @@
           <h3>1. Get Genie</h3>
           <pre>
               <code class="language-julia">
+julia> Pkg.clone("https://github.com/JuliaDB/DBI.jl") # Julia's DB interface
+julia> Pkg.clone("https://github.com/JuliaDB/PostgreSQL.jl") # PostgreSQL adapter
 julia> Pkg.clone("https://github.com/essenciary/Flax.jl") # Genie's templating engine
 julia> Pkg.clone("https://github.com/essenciary/SearchLight.jl") # Genie's ORM
 julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Finally the Genie itself 👻
@@ -151,6 +153,8 @@ julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Finally the Genie i
 julia> using Genie # Bring Genie into scope
 julia> Genie.REPL.new_app("demo_app") # Genie will create a new app called "demo_app"
 info: Done! New app created at /demo_app
+warn: You must restart the current Julia session before loading the new app to properly reinitialize Genie.
+
               </code>
             </pre>
         </div>
