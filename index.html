@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Genie :: The high-performance high-productivity Julia web framework</title>
+  <title>Genie :: The highly productive Julia web framework</title>
 
   <!-- Bootstrap -->
   <link href="styles/bootstrap.css" rel="stylesheet">
@@ -153,7 +153,7 @@ julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Finally the Genie i
 julia> using Genie # Bring Genie into scope
 julia> Genie.REPL.new_app("your_cool_new_app") # Genie will create a new app called "your_cool_new_app"
 info: Done! New app created at /your_cool_new_app
-warn: Please restart the current Julia session before loading the new app to properly reinitialize Genie.
+
 
               </code>
             </pre>
@@ -165,7 +165,7 @@ warn: Please restart the current Julia session before loading the new app to pro
           <pre>
               <code class="language-bash">
 $> cd demo_app
-$> ./genie.jl s
+$> bin/server
 Listening on 0.0.0.0:8000...
               </code>
             </pre>
