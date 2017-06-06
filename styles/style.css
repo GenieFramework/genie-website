@@ -363,3 +363,7 @@ ul.footer-menu li a:hover {
 #home {
 	padding-bottom: 2em;
 }
+
+#tickets .col-md-3.feature p {
+	min-height: 70px;
+}

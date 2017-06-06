@@ -134,49 +134,38 @@
       <br><br>
       <h2 class="row-title" id="getting-started">Getting Started with Genie</h2>
       <div class="row">
-        <div class="col-md-6 feature">
-          <h3>1. Get Genie</h3>
+        <div class="col-md-12 feature">
+          <h3>1. Create a New App</h3>
           <pre>
               <code class="language-julia">
-julia> Pkg.clone("https://github.com/JuliaDB/DBI.jl") # Julia's DB interface
-julia> Pkg.clone("https://github.com/JuliaDB/PostgreSQL.jl") # PostgreSQL adapter
-julia> Pkg.clone("https://github.com/essenciary/Flax.jl") # Genie's templating engine
-julia> Pkg.clone("https://github.com/essenciary/SearchLight.jl") # Genie's ORM
-julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Finally the Genie itself 👻
-              </code>
-            </pre>
-        </div>
-        <div class="col-md-6 feature">
-          <h3>2. Create a new app</h3>
-          <pre>
-              <code class="language-julia">
+julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Get Genie
 julia> using Genie # Bring Genie into scope
-julia> Genie.REPL.new_app("your_cool_new_app") # Genie will create a new app called "your_cool_new_app"
-info: Done! New app created at /your_cool_new_app
 
-
+julia> Genie.REPL.new_app("your_cool_new_app") # Genie will create a new app called "your_cool_new_app" and start an interactive session.
               </code>
             </pre>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 feature">
-          <h3>3. Start server</h3>
+          <h3>2. Say Hello</h3>
           <pre>
-              <code class="language-bash">
-$> cd your_cool_new_app
-$> bin/server
-Listening on 0.0.0.0:8000...
+              <code class="language-julia">
+# append this to /your_cool_new_app/config/routes.jl
+route("/hello") do
+  "Hello - Welcome to Genie!"
+end
               </code>
             </pre>
         </div>
         <div class="col-md-6 feature">
-          <h3>Ready!</h3>
+          <h3>3. Ready!</h3>
           <pre>
-              <code class="language-markup">
-Visit <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> in your favorite browser<br>.
+              <code class="language-julia">
+genie> AppServer.startup()
+Listening on 0.0.0.0:8000...
 
-Your Genie app is ready!
+# Visit http://localhost:8000/hello in your favorite browser
               </code>
             </pre>
         </div>
@@ -191,100 +180,100 @@ Your Genie app is ready!
     <div class="container-fluid me-row content-ct">
       <h2 class="row-title">Complete toolset for productive web development</h2>
 
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/searchlight-12.png" class="speaker-img" alt="SearchLight ORM">
         <h3>SearchLight ORM</h3>
         <p>Build DB agnostic apps with Genie's powerful and expressive ORM.</p>
         <a href="http://searchlightjl.readthedocs.io/en/latest/build/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/flax-5.png" class="speaker-img" alt="Flax View Templates">
         <h3>Flax View Templates</h3>
         <p>Familiar HTML based, flexible and fast (compiled fast!) view templates.</p>
         <a href="http://flaxjl.readthedocs.io/en/latest/build/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/server-2.png" class="speaker-img" alt="Web Server">
         <h3>Web Server</h3>
         <p>Fast, flexible, non-blocking HTTP and WebSockets server included.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/appserver/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/api.png" class="speaker-img" alt="REST APIs">
         <h3>REST APIs</h3>
         <p>Expose your model data with succint and expressive JSON data templates.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/renderer/" target="_blank">Read more</a>
       </div>
 
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/channels.png" class="speaker-img" alt="Channels">
         <h3>Channels</h3>
         <p>Real-time apps over WebSockets using the familiar MVC architecture.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/channels/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/authentication-2.png" class="speaker-img" alt="Authentication">
         <h3>Authentication</h3>
         <p>Easily add authentication to a whole app. Or to sensitive features only.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/authentication/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/cache-2.png" class="speaker-img" alt="Caching">
         <h3>Caching</h3>
         <p>Cache enable expensive operations with just one line of code using cache blocks.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/cache/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/authorization-2.png" class="speaker-img" alt="Authorization">
         <h3>Authorization</h3>
         <p>Simple and powerful user authorization based on flexible ACLs.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/authorization/" target="_blank">Read more</a>
       </div>
 
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/logging.png" class="speaker-img" alt="Logging">
         <h3>Logging</h3>
         <p>Powerful logging = priceless insight into your app's inner workings.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/logger/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/migrations.png" class="speaker-img" alt="Database migrations">
         <h3>Database migrations</h3>
         <p>Stress-free DB versioning in pure SQL with Genie's migrations tools.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/migration/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/validations.png" class="speaker-img" alt="Model validations">
         <h3>Model validations</h3>
         <p>Guaranteed data integrity with pure Julia model validations.</p>
         <a href="http://searchlightjl.readthedocs.io/en/latest/build/validation/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/toolbox.png" class="speaker-img" alt="Command line apps">
         <h3>Command line apps</h3>
         <p>Complete toolset for creating fully featured command line utilities.</p>
         <a href="http://geniejl.readthedocs.io/en/latest/build/toolbox/" target="_blank">Read more</a>
       </div>
 
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/asset-pipeline-2.png" class="speaker-img" alt="Asset pipeline">
         <h3>Asset pipeline</h3>
         <p>Fully integrated asset management with <a href="https://yarnpkg.com/" target="_blank">Yarn</a> and <a href="https://webpack.js.org/" target="_blank">Webpack</a>.</p>
         <a href="#" onclick="alert('Guides coming soon!'); return false;">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/routing-9.png" class="speaker-img" alt="Routing">
         <h3>Powerful routing</h3>
         <p>With optional strong typed params, lambdas or full Controller dispatch.</p>
         <a href="http://geniejl.readthedocs.io/en/stable/build/router/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/generators.png" class="speaker-img" alt="File generators">
         <h3>Generators</h3>
         <p>Get up and running in minutes with Genie's powerful file generators.</p>
         <a href="http://geniejl.readthedocs.io/en/stable/build/generator/" target="_blank">Read more</a>
       </div>
-      <div class="col-md-3 col-sm-4 feature">
+      <div class="col-sm-4 col-md-3 feature">
         <img src="img/configuration.png" class="speaker-img" alt="Configuration">
         <h3>Configurable</h3>
         <p>Control your app via dev, test and production predefined environments.</p>
