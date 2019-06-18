@@ -76,32 +76,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="/guides" onclick="alert('Coming soon!'); return false;">Guides</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs</a>
-              <ul class="dropdown-menu">
-                <li><a href="http://geniejl.readthedocs.io/en/latest/build/" target="_blank">Genie.jl Web Framework</a></li>
-                <li><a href="http://searchlightjl.readthedocs.io/en/latest/build/" target="_blank">SearchLight.jl ORM</a></li>
-                <li><a href="http://flaxjl.readthedocs.io/en/latest/build/" target="_blank">Flax.jl Templates</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="https://docs.julialang.org/en/stable/" target="_blank">Julia Docs</a></li>
-              </ul>
-            </li>
+            <li><a href="https://github.com/genieframework/Genie.jl#getting-started" target="_blank">Docs</a></li>
             <li><a href="https://gitter.im/essenciary/Genie.jl" target="_blank">Community</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Github Repos</a>
               <ul class="dropdown-menu">
-                <li><a href="https://github.com/essenciary/Genie.jl" target="_blank">Genie.jl Web Framework</a></li>
-                <li><a href="https://github.com/essenciary/SearchLight.jl" target="_blank">SearchLight.jl ORM</a></li>
-                <li><a href="https://github.com/essenciary/Flax.jl" target="_blank">Flax.jl Templates</a></li>
+                <li><a href="https://github.com/genieframework/Genie.jl" target="_blank">Genie.jl Web Framework</a></li>
+                <li><a href="https://github.com/genieframework/SearchLight.jl" target="_blank">SearchLight.jl ORM</a></li>
               </ul>
             </li>
-            <li><a href="/blog" onclick="alert('Coming soon!'); return false;">Blog</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/packages">Discover Julia Packages</a></li>
-            <li><a href="https://julialang.org/" target="_blank">About Julia</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -110,20 +93,23 @@
 
     <!-- Start: Header -->
     <div class="container-fluid hero-header" id="home">
+      <div class="container">
       <div class="col-md-7">
         <h1 id="main-heading">The highly productive Julia web framework</h1>
-        <h3>Genie is a full-stack MVC web framework that promotes a streamlined and efficient workflow for developing modern web applications.</h3>
+        <h3>Genie is a full-stack MVC web framework which promotes a streamlined and efficient
+            workflow for developing modern web applications in Julia</h3>
         <p>
           <a href="#getting-started" class="btn btn-lg btn-red">Get started with Genie</a>
         </p>
         <div>
-          <a class="github-button" href="https://github.com/essenciary/Genie.jl/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork essenciary/Genie.jl on GitHub">Fork repo</a>
-          <a class="github-button" href="https://github.com/essenciary/Genie.jl" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star essenciary/Genie.jl on GitHub">Star on GitHub</a>
+          <a class="github-button" href="https://github.com/genieframework/Genie.jl/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork essenciary/Genie.jl on GitHub">Fork repo</a>
+          <a class="github-button" href="https://github.com/genieframework/Genie.jl" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star essenciary/Genie.jl on GitHub">Star on GitHub</a>
         </div>
       </div>
       <div class="col-md-5 hidden-xs">
         <img src="img/genie.png" class="rocket animated bounce" alt="Genie">
       </div>
+    </div>
     </div>
     <!-- End: Header -->
   </div>
@@ -133,174 +119,147 @@
     <div class="row me-row content-ct _speaker" id="speakers">
       <br><br>
       <h2 class="row-title" id="getting-started">Getting Started with Genie</h2>
+
       <div class="row">
         <div class="col-md-12 feature">
-          <h3>1. Create a New App</h3>
+          <h3>1. Get Genie</h3>
           <pre>
-              <code class="language-julia">
-julia> Pkg.clone("https://github.com/essenciary/Genie.jl") # Get Genie
-julia> using Genie # Bring Genie into scope
+            <code class="language-julia">
+julia> ] # enter Pkg mode
 
-julia> Genie.REPL.new_app("your_cool_new_app") # Genie will create a new app called "your_cool_new_app" and start an interactive session.
-              </code>
-            </pre>
+pkg> add https://github.com/genieframework/Genie.jl # Get Genie
+
+julia> using Genie # Bring Genie into scope
+            </code>
+          </pre>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-6 feature">
-          <h3>2. Say Hello</h3>
+        <div class="col-md-12 feature">
+          <h3>2. Add Your Logic</h3>
           <pre>
-              <code class="language-julia">
-# append this to /your_cool_new_app/config/routes.jl
-route("/hello") do
+            <code class="language-julia">
+# Register a new route at "/hello"
+julia> using Genie.Router
+
+julia> route("/hello") do
   "Hello - Welcome to Genie!"
 end
-              </code>
-            </pre>
+            </code>
+          </pre>
         </div>
-        <div class="col-md-6 feature">
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 feature">
           <h3>3. Ready!</h3>
           <pre>
-              <code class="language-julia">
-genie> AppServer.startup()
-Listening on 0.0.0.0:8000...
+            <code class="language-julia">
+# Start the web server and visit http://localhost:8000/hello in your favorite browser
+julia> Genie.startup()
 
-# Visit http://localhost:8000/hello in your favorite browser
-              </code>
-            </pre>
+Ready
+Web Server starting at 127.0.0.1:8000
+Web Server running at 127.0.0.1:8000
+            </code>
+          </pre>
         </div>
       </div>
     </div>
-    <!-- End: Speakers -->
+    <!-- End: Getting Started -->
   </div>
 
   <!-- Start: Tickets -->
   <div class="container-fluid tickets" id="tickets">
+    <div class="container">
     <!-- Start: Desc -->
     <div class="container-fluid me-row content-ct">
       <h2 class="row-title">Complete toolset for productive web development</h2>
-
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/searchlight-12.png" class="speaker-img" alt="SearchLight ORM">
-        <h3>SearchLight ORM</h3>
-        <p>Build DB agnostic apps with Genie's powerful and expressive ORM.</p>
-        <a href="http://searchlightjl.readthedocs.io/en/latest/build/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/flax-5.png" class="speaker-img" alt="Flax View Templates">
-        <h3>Flax View Templates</h3>
-        <p>Familiar HTML based, flexible and fast (compiled fast!) view templates.</p>
-        <a href="http://flaxjl.readthedocs.io/en/latest/build/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/server-2.png" class="speaker-img" alt="Web Server">
-        <h3>Web Server</h3>
-        <p>Fast, flexible, non-blocking HTTP and WebSockets server included.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/appserver/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/api.png" class="speaker-img" alt="REST APIs">
-        <h3>REST APIs</h3>
-        <p>Expose your model data with succint and expressive JSON data templates.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/renderer/" target="_blank">Read more</a>
+      <div class="row">
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/server-2.png" class="speaker-img" alt="Web Server">
+          <h3>Web Server</h3>
+          <p>Fast, flexible, non-blocking HTTP and WebSockets servers.</p>
+        </div>
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/flax-5.png" class="speaker-img" alt="Flax View Templates">
+          <h3>Flax View Templates</h3>
+          <p>Familiar HTML based and fast (compiled fast!) view templates.</p>
+        </div>
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/routing-9.png" class="speaker-img" alt="Routing">
+          <h3>Powerful Routing</h3>
+          <p>With optional strong typed params, lambdas or full Controller dispatch.</p>
+        </div>
       </div>
 
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/channels.png" class="speaker-img" alt="Channels">
-        <h3>Channels</h3>
-        <p>Real-time apps over WebSockets using the familiar MVC architecture.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/channels/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/authentication-2.png" class="speaker-img" alt="Authentication">
-        <h3>Authentication</h3>
-        <p>Easily add authentication to a whole app. Or to sensitive features only.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/authentication/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/cache-2.png" class="speaker-img" alt="Caching">
-        <h3>Caching</h3>
-        <p>Cache enable expensive operations with just one line of code using cache blocks.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/cache/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/authorization-2.png" class="speaker-img" alt="Authorization">
-        <h3>Authorization</h3>
-        <p>Simple and powerful user authorization based on flexible ACLs.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/authorization/" target="_blank">Read more</a>
+      <hr/>
+
+      <div class="row">
+        <h2 class="row-title">Flexible and secure database access</h2>
+
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/searchlight-12.png" class="speaker-img" alt="SearchLight ORM">
+          <h3>SearchLight ORM</h3>
+          <p>Build DB agnostic web apps with SearchLight, Genie's powerful and expressive ORM.</p>
+        </div>
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/migrations.png" class="speaker-img" alt="Database migrations">
+          <h3>Database migrations</h3>
+          <p>Stress-free DB versioning in pure SQL with SearchLight's migrations tools.</p>
+        </div>
+        <div class="col-sm-4 col-md-4 feature">
+          <img src="img/validations.png" class="speaker-img" alt="Model validations">
+          <h3>Model validations</h3>
+          <p>Guaranteed data integrity with pure Julia model validations.</p>
+        </div>
       </div>
 
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/logging.png" class="speaker-img" alt="Logging">
-        <h3>Logging</h3>
-        <p>Powerful logging = priceless insight into your app's inner workings.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/logger/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/migrations.png" class="speaker-img" alt="Database migrations">
-        <h3>Database migrations</h3>
-        <p>Stress-free DB versioning in pure SQL with Genie's migrations tools.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/migration/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/validations.png" class="speaker-img" alt="Model validations">
-        <h3>Model validations</h3>
-        <p>Guaranteed data integrity with pure Julia model validations.</p>
-        <a href="http://searchlightjl.readthedocs.io/en/latest/build/validation/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/toolbox.png" class="speaker-img" alt="Command line apps">
-        <h3>Command line apps</h3>
-        <p>Complete toolset for creating fully featured command line utilities.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/toolbox/" target="_blank">Read more</a>
+      <hr/>
+
+      <div class="row">
+        <h2 class="row-title">And more!</h2>
+
+        <div class="col-sm-3 col-md-3 feature">
+          <img src="img/channels.png" class="speaker-img" alt="Channels">
+          <h3>Channels</h3>
+          <p>Real-time apps over WebSockets using the familiar MVC architecture.</p>
+        </div>
+        <div class="col-sm-3 col-md-3 feature">
+          <img src="img/cache-2.png" class="speaker-img" alt="Caching">
+          <h3>Caching</h3>
+          <p>Cache expensive operations with just one line of code.</p>
+        </div>
+        <div class="col-sm-3 col-md-3 feature">
+          <img src="img/logging.png" class="speaker-img" alt="Logging">
+          <h3>Logging</h3>
+          <p>Powerful logging for immediate insight into your app.</p>
+        </div>
+        <div class="col-sm-3 col-md-3 feature">
+          <img src="img/asset-pipeline-2.png" class="speaker-img" alt="Asset pipeline">
+          <h3>Asset pipeline</h3>
+          <p>Integrated asset management with <a href="https://yarnpkg.com/" target="_blank">Yarn</a> and <a href="https://webpack.js.org/" target="_blank">Webpack</a>.</p>
+        </div>
       </div>
 
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/asset-pipeline-2.png" class="speaker-img" alt="Asset pipeline">
-        <h3>Asset pipeline</h3>
-        <p>Fully integrated asset management with <a href="https://yarnpkg.com/" target="_blank">Yarn</a> and <a href="https://webpack.js.org/" target="_blank">Webpack</a>.</p>
-        <a href="#" onclick="alert('Guides coming soon!'); return false;">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/routing-9.png" class="speaker-img" alt="Routing">
-        <h3>Powerful routing</h3>
-        <p>With optional strong typed params, lambdas or full Controller dispatch.</p>
-        <a href="http://geniejl.readthedocs.io/en/stable/build/router/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/generators.png" class="speaker-img" alt="File generators">
-        <h3>Generators</h3>
-        <p>Get up and running in minutes with Genie's powerful file generators.</p>
-        <a href="http://geniejl.readthedocs.io/en/stable/build/generator/" target="_blank">Read more</a>
-      </div>
-      <div class="col-sm-4 col-md-3 feature">
-        <img src="img/configuration.png" class="speaker-img" alt="Configuration">
-        <h3>Configurable</h3>
-        <p>Control your app via dev, test and production predefined environments.</p>
-        <a href="#" onclick="alert('Guides coming soon!'); return false;">Read more</a>
-      </div>
     </div>
     <!-- End: Desc -->
+    </div>
   </div>
   <!-- End: Tickets -->
 
   <!-- Start: Tickets -->
-  <div class="container-fluid whats-next" id="whats-next">
+  <div class="container whats-next" id="whats-next">
     <div class="row me-row content-ct">
       <h2 class="row-title">What next?</h2>
-      <div class="col-md-4 feature">
+      <div class="col-sm-6 col-md-6 feature">
         <img src="img/docs.png" class="speaker-img" alt="The docs">
         <h3>The docs</h3>
-        <p>Check out the guides, try the sample apps or study the API docs.</p>
-        <a href="http://geniejl.readthedocs.io/en/latest/build/" target="_blank">Read the docs</a>
+        <p>Check out the Getting Starting Guide.</p>
+        <a href="https://github.com/essenciary/Genie.jl#genie" target="_blank">Read the docs</a>
       </div>
-      <div class="col-md-4 feature">
-        <img src="img/contribute-2.png" class="speaker-img" alt="The docs">
-        <h3>Contribute</h3>
-        <p>Fork Genie on GitHub and add your favorite new features or squash some bugs.</p>
-        <a href="https://github.com/essenciary/Genie.jl" target="_blank">Visit GitHub page</a>
-      </div>
-      <div class="col-md-4 feature">
+      <div class="col-sm-6 col-md-6 feature">
         <img src="img/community.png" class="speaker-img" alt="Get in touch">
         <h3>Get in touch</h3>
         <p>Come say "Hi!" -- join Genie's community on Gitter.</p>
@@ -313,16 +272,16 @@ Listening on 0.0.0.0:8000...
   <!-- Start: Footer -->
   <div class="container-fluid footer">
     <div class="row footer-credit">
-      <div class="col-md-6 col-sm-6">
-        <p>&copy; 2016-2017 Adrian Salceanu | All rights reserved.</p>
+      <div class="col-md-12 col-sm-12">
+        <p>&copy; 2016-2019 Adrian Salceanu | All rights reserved.</p>
       </div>
-      <div class="col-md-6 col-sm-6">
-        <!--ul class="footer-menu">
+      <!--div class="col-md-6 col-sm-6">
+        <ul class="footer-menu">
           <li><a href="#">About Us</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms &amp; Condition</a></li>
-        </ul-->
-      </div>
+        </ul>
+      </div-->
     </div>
   </div>
   <!-- End: Footer -->
